@@ -81,7 +81,7 @@ async def start_func(message: types.Message, state: FSMContext, session: AsyncSe
         elif school:
                 main_menu_btn = await main_menu_button()
                 await message.answer("Bosh menyu", reply_markup=main_menu_btn)
-            await state.set_state(UserStart.menu)
+                await state.set_state(UserStart.menu)
         else:
             await message.answer(
                     "<b>⚠️ Siz hali to'liq ro'yxatdan o'tmagansiz</b>\n\n"
