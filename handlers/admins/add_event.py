@@ -11,6 +11,7 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from database.config import ADMINS
 from states.all_states import AddEventState, EventState
 from loader import bot
+from database.config import PRIVATE_CHANNEL
 
 
 admin_router = Router()
