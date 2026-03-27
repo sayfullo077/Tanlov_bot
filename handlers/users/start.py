@@ -58,6 +58,7 @@ async def start_func(message: types.Message, state: FSMContext, session: AsyncSe
             if not subscribed:
                 await message.answer("Shu kabi tanlovlarni o'tkazib yubormaslik uchun bizning kanallarimizga obuna bo'lishingiz kerak 😊",
                                     reply_markup=start_btn)
+                await state.set_state(UserStart.menu)
             else:
                 await message.answer(
                     "<b>⚠️ Siz hali to'liq ro'yxatdan o'tmagansiz</b>\n\n"
@@ -80,14 +81,14 @@ async def start_func(message: types.Message, state: FSMContext, session: AsyncSe
         elif school:
                 main_menu_btn = await main_menu_button()
                 await message.answer("Bosh menyu", reply_markup=main_menu_btn)
-        
+            await state.set_state(UserStart.menu)
         else:
             await message.answer(
                     "<b>⚠️ Siz hali to'liq ro'yxatdan o'tmagansiz</b>\n\n"
                     "<b>Ism-familiyangizni kiriting:</b>\n(Misol: <i>Abdullayev Jahongir</i>)"
                 )
-            
-    await state.set_state(UserStart.menu)
+            await state.set_state(RegistrationState.full_name)
+    
 
 
 @user_router.callback_query(F.data == "check_sub")
