@@ -79,5 +79,6 @@ class AddEventState(StatesGroup):
     title = State()
     description = State()
     check = State()
+    select_channels = State()
 
 
