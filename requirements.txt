@@ -1,0 +1,9 @@
+environs
+aiogram==3.4.0
+sqlalchemy==2.0.25
+python-dotenv
+asyncpg
+psutil
+greenlet
+pandas
+openpyxl
