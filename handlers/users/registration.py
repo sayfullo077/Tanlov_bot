@@ -4,7 +4,7 @@ from aiogram import Router, types, F
 from aiogram.filters import CommandStart
 from aiogram.fsm.context import FSMContext
 from sqlalchemy.ext.asyncio import AsyncSession
-from keyboards.inline.inline_buttons import back_button, confirm_button, start_button, user_profile_button
+from keyboards.inline.inline_buttons import back_button, confirm_button, start_button, user_profile_button, main_menu_button
 from keyboards.default.default_buttons import phone_keyboard
 from states.all_states import RegistrationState
 from database.config import PRIVATE_CHANNEL, CHANNEL_USERNAME, ADMINS
@@ -94,7 +94,8 @@ async def confirm_data_func(call: types.CallbackQuery, state: FSMContext, sessio
                                                        f"{data_text}", reply_markup=user_profile_btn)
     except Exception as e:
         await bot.send_message(chat_id=637914427, text=f"Error while sending to admin: {e}")
-    await call.message.edit_text("<b>✅ Arizangiz qabul qilindi, tez orada aloqaga chiqamiz!</b>", reply_markup=start_btn)
+    main_menu_btn = await main_menu_button()
+    await call.message.edit_text("Bosh menyu", reply_markup=main_menu_btn)
     await state.clear()
 
 

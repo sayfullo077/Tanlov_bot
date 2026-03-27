@@ -166,7 +166,6 @@ async def user_detail_callback(
         f"👤 <b>User info</b>\n\n"
         f"🆔 ID: <code>{user.telegram_id}</code>\n"
         f"👤 Name: {user.full_name}\n"
-        f"📍 Location: {user.address or '—'}"
     )
     back_btn = await back_button()
     await call.message.delete()
