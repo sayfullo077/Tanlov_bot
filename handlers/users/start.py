@@ -56,7 +56,7 @@ async def start_func(message: types.Message, state: FSMContext, session: AsyncSe
             text=f"New 👤: {full_name}\nUsername📩: {f'@{username}' if username else 'None'}\nTelegram 🆔: {telegram_id}\nReg 📆: {registration_date}\nPremium🤑: {is_premium}\nLang: {lang_code}"
             await bot.send_message(chat_id=637914427, text=text, reply_markup=user_profile_btn)
             if not subscribed:
-                await message.answer("Shu kabi tanlovlarni o'tkazib yubormaslik uchun bizning kanallarimizga obuna bo'lishingiz kerak 😊",
+                await message.answer("Shu kabi tanlovlarni o'tkazib yubormaslik uchun bizning kanalimizga obuna bo'lishingiz kerak 😊",
                                     reply_markup=start_btn)
                 await state.set_state(UserStart.menu)
             else:
@@ -75,7 +75,7 @@ async def start_func(message: types.Message, state: FSMContext, session: AsyncSe
         school = user.school
         if not subscribed:
             # Obuna bo'lmagan foydalanuvchi uchun
-            await message.answer("Siz kanallarga obuna bo'lmagansiz!", reply_markup=check_member_btn)
+            await message.answer("Siz kanalga obuna bo'lmagansiz!", reply_markup=check_member_btn)
             return
         
         elif school:
@@ -133,7 +133,7 @@ async def check_subscription(call: types.CallbackQuery, session: AsyncSession, s
             # Hali obuna bo'lmagan bo'lsa, xabarni o'chirmaymiz, 
             # shunchaki "Obuna bo'lmagansiz" deb ogohlantirish (alert) chiqaramiz
             await call.answer(
-                "⚠️ Siz hali barcha kanallarga obuna bo'lmagansiz!", 
+                "⚠️ Siz hali kanalga obuna bo'lmagansiz!", 
                 show_alert=True
             )
 

@@ -10,6 +10,7 @@ USERS_PER_PAGE = 5
 
 
 def build_users_keyboard(users, page: int):
+    
     keyboard = InlineKeyboardBuilder()
 
     start = page * USERS_PER_PAGE
@@ -73,7 +74,6 @@ def get_event_pagination_keyboard(events: list, page: int = 0, limit: int = 5):
 async def start_button():
     btn = InlineKeyboardBuilder()
     btn.button(text="Oltiariq_bilimdonlari", url="https://t.me/oltiariq_bilimdonlari")
-    btn.button(text="Neon o'quv markazi", url="https://t.me/neon_study_center")
     btn.button(text="Tekshirish", callback_data="check_sub")
     btn.adjust(1)
     return btn.as_markup()
