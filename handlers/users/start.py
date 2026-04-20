@@ -128,10 +128,8 @@ async def check_subscription(call: types.CallbackQuery, session: AsyncSession, s
                 )
             
             await state.set_state(RegistrationState.full_name)
-            # Bu yerda foydalanuvchi ismini kutish uchun State ni ham o'zgartirishingiz mumkin
+            
         else:
-            # Hali obuna bo'lmagan bo'lsa, xabarni o'chirmaymiz, 
-            # shunchaki "Obuna bo'lmagansiz" deb ogohlantirish (alert) chiqaramiz
             await call.answer(
                 "⚠️ Siz hali kanalga obuna bo'lmagansiz!", 
                 show_alert=True
